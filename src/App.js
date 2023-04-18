@@ -1,11 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
-import 'leaflet/dist/leaflet.css';
-import { busStops } from './data';
 
-import { MapContainer,TileLayer, Marker, Popup } from 'react-leaflet';
+import { busStops } from './data';
+import busStopsJson from './data/VAG.json';
+
+import { MapContainer,TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet';
 import { Icon, divIcon } from 'leaflet';
 import MarkerClusterGroup from 'react-leaflet-cluster';
+import 'leaflet/dist/leaflet.css';
+
 
 
 function App() {
@@ -40,6 +43,7 @@ function App() {
       {busStops.map(marker => (
         <Marker position={marker.geocode} icon={customIcon}>
           <Popup><h2>{marker.popUp}</h2></Popup>
+          <GeoJSON data={busStopsJson} />
         </Marker>
       ))}
     </MarkerClusterGroup>
