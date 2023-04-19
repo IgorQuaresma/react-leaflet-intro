@@ -69,3 +69,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 # react-leaflet-intro
+
+
+Data Source:
+
+Freiburg: VAG - https://transitfeeds.com/p/freiburger-verkehrs-ag/1228/latest/download
+Muenster: Stadtwerke Muenster - https://api.busradar.conterra.de/data/stadtwerke_feed.zip
