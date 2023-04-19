@@ -7,6 +7,7 @@ import "leaflet/dist/leaflet.css";
 import icon from "leaflet/dist/images/marker-icon.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
 import L from "leaflet";
+import "./Map.css";
 
 function Map() {
   //Set marker style back to default
