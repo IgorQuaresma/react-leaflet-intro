@@ -30,15 +30,19 @@ function App() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      {busStopsData.map((station) => (
-        <Marker
-          key={station.properties.stop_name}
-          position={[
-            station.geometry.coordinates[1],
-            station.geometry.coordinates[0],
-          ]}
-        ></Marker>
-      ))}
+      <MarkerClusterGroup
+        chunkedLoading //Performance
+      >
+        {busStopsData.map((station) => (
+          <Marker
+            key={station.properties.stop_name}
+            position={[
+              station.geometry.coordinates[1],
+              station.geometry.coordinates[0],
+            ]}
+          ></Marker>
+        ))}
+      </MarkerClusterGroup>
     </MapContainer>
   );
 }
