@@ -9,6 +9,8 @@ import iconShadow from "leaflet/dist/images/marker-shadow.png";
 import L from "leaflet";
 import "./Map.css";
 
+import { popupContent, popupHead, popupText, okText } from "./popupStyles";
+
 function Map() {
   //Set marker style back to default
   let DefaultIcon = L.icon({
@@ -31,13 +33,30 @@ function Map() {
       >
         {busStopsData.map((station) => (
           <Marker
-            key={station.properties.stop_name}
+            key={station.properties.stop_id}
             position={[
               station.geometry.coordinates[1],
               station.geometry.coordinates[0],
             ]}
+            eventHandlers={{
+              click: (e) => {
+                console.log("marker clicked", station.properties.stop_id);
+              },
+            }}
           >
-            <Popup>{station.properties.stop_name.split(",")[1]}</Popup>
+            <Popup className="request-popup">
+              <div>
+                <div style={popupHead}>
+                  {station.properties.stop_name.split(",")[1]} <br />
+                </div>
+                <span style={popupText}>
+                  Bus Lines:{" "}
+                  {station.properties.routes.map(
+                    (route) => route.route_short_name + " "
+                  )}
+                </span>
+              </div>
+            </Popup>
           </Marker>
         ))}
       </MarkerClusterGroup>
