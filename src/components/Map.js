@@ -31,11 +31,16 @@ function Map() {
       >
         {busStopsData.map((station) => (
           <Marker
-            key={station.properties.stop_name}
+            key={station.properties.stop_id}
             position={[
               station.geometry.coordinates[1],
               station.geometry.coordinates[0],
             ]}
+            eventHandlers={{
+              click: (e) => {
+                console.log("marker clicked", station.properties.stop_id);
+              },
+            }}
           >
             <Popup>{station.properties.stop_name.split(",")[1]}</Popup>
           </Marker>
