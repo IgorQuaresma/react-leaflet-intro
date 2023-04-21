@@ -7,9 +7,14 @@ import "leaflet/dist/leaflet.css";
 import icon from "leaflet/dist/images/marker-icon.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
 import L from "leaflet";
-import "./Map.css";
+import "../assets/style/css/Map.css";
 
-import { popupContent, popupHead, popupText, okText } from "./popupStyles";
+import {
+  popupContent,
+  popupHead,
+  popupText,
+  okText,
+} from "../assets/style/js/popupStyles.js";
 
 function Map() {
   //Set marker style back to default
